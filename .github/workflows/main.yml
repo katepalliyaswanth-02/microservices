@@ -1,4 +1,4 @@
-name: CI/CD Pipeline - Microservices (Single Repo)
+name: Microservice
 
 on:
   push:
@@ -23,15 +23,15 @@ jobs:
       # Build & Push User Service
       - name: Build & Push user-service
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/microservices:user-service-latest ./user-service
-          docker push ${{ secrets.DOCKER_USERNAME }}/microservices:user-service-latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/microservices:user-service ./user-service
+          docker push ${{ secrets.DOCKER_USERNAME }}/microservices:user-service
       # Build & Push Task Service
       - name: Build & Push task-service
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/microservices:task-service-latest ./task-service
-          docker push ${{ secrets.DOCKER_USERNAME }}/microservices:task-service-latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/microservices:task-service ./task-service
+          docker push ${{ secrets.DOCKER_USERNAME }}/microservices:task-service
       # Build & Push Gateway Service
       - name: Build & Push gateway-service
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/microservices:gateway-service-latest ./gateway-service
-          docker push ${{ secrets.DOCKER_USERNAME }}/microservices:gateway-service-latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/microservices:gateway-service ./gateway-service
+          docker push ${{ secrets.DOCKER_USERNAME }}/microservices:gateway-service
